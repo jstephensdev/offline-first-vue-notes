@@ -37,6 +37,46 @@
     <div class="flex flex-col flex-grow" v-if="Object.keys(activeNote).length">
       <!-- Editor -->
       <div class="flex flex-col flex-grow overflow-auto">
+        <div v-if="editor" class="mx-auto">
+          <button
+            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            @click="editor.chain().focus().toggleBold().run()"
+            :disabled="!editor.can().chain().focus().toggleBold().run()"
+            :class="{ 'is-active': editor.isActive('bold') }"
+          >
+            bold
+          </button>
+          <button
+            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            @click="editor.chain().focus().toggleItalic().run()"
+            :disabled="!editor.can().chain().focus().toggleItalic().run()"
+            :class="{ 'is-active': editor.isActive('italic') }"
+          >
+            italic
+          </button>
+          <button
+            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            @click="editor.chain().focus().toggleStrike().run()"
+            :disabled="!editor.can().chain().focus().toggleStrike().run()"
+            :class="{ 'is-active': editor.isActive('strike') }"
+          >
+            strike
+          </button>
+          <button
+            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            @click="editor.chain().focus().toggleBulletList().run()"
+            :class="{ 'is-active': editor.isActive('bulletList') }"
+          >
+            bullet list
+          </button>
+          <button
+            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            @click="editor.chain().focus().toggleOrderedList().run()"
+            :class="{ 'is-active': editor.isActive('orderedList') }"
+          >
+            ordered list
+          </button>
+        </div>
         <editor-content :editor="editor" />
       </div>
       <div class="h-16 bg-gray-100 border-t border-gray-300 text-right items-center">
@@ -49,7 +89,7 @@
       </div>
     </div>
     <div class="flex flex-col flex-grow" v-else>
-       <!-- All notes List -->
+      <!-- All notes List -->
       <div class="flex flex-col flex-grow overflow-auto">
         <div v-for="note in notes" :key="note.id">
           <div class="flex px-4 pt-3 pb-4">
@@ -62,7 +102,7 @@
               <div v-html="note.content"></div>
             </div>
           </div>
-          <hr class="w-full">
+          <hr class="w-full" />
         </div>
       </div>
     </div>
