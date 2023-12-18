@@ -23,6 +23,11 @@ This is a Vue PWA learning project. This project is base on https://laracasts.co
 3. view all notes
 4. download a a progressive web app
 
+## Incomplete Todos / Features
+
+1. caching
+2. tests
+
 ## Helpful Resources
 
 1. https://laracasts.com/series/lets-build-an-offline-first-vue-app/
