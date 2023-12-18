@@ -1,35 +1,33 @@
-# offline-first-vue-notes
+# Offline First Vue Notes
+This is a Vue PWA learning project. This project is base on https://laracasts.com/series/lets-build-an-offline-first-vue-app/.
 
-This template should help get you started developing with Vue 3 in Vite.
+## Technology Used
 
-## Recommended IDE Setup
+1. Vue
+2. tictap
+3. IndexDB
+4. Vite
+5. Vue PWA
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Local Startup Guide
 
-## Customize configuration
+1. fork project
+2. npm i
+3. npm run dev
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Completed Features
 
-```sh
-npm install
-```
+1. indexdb for storage
+2. create, update, delete notes
+3. view all notes
+4. download a a progressive web app
 
-### Compile and Hot-Reload for Development
+## Helpful Resources
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+1. https://laracasts.com/series/lets-build-an-offline-first-vue-app/
+2. https://www.vuemastery.com/blog/getting-started-with-pwas-and-vue3/
+3. https://blog.logrocket.com/building-pwa-vue/
+4. https://vite-pwa-org.netlify.app/deployment/netlify.html
+5. https://github.com/vite-pwa/vite-plugin-pwa/issues/396
+6. https://stackoverflow.com/questions/71355290/prevent-service-worker-js-from-being-bundled-with-vite-rollup
