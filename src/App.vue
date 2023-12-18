@@ -37,46 +37,6 @@
     <div class="flex flex-col flex-grow" v-if="Object.keys(activeNote).length">
       <!-- Editor -->
       <div class="flex flex-col flex-grow overflow-auto">
-        <div v-if="editor" class="mx-auto">
-          <button
-            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-            @click="editor.chain().focus().toggleBold().run()"
-            :disabled="!editor.can().chain().focus().toggleBold().run()"
-            :class="{ 'is-active': editor.isActive('bold') }"
-          >
-            bold
-          </button>
-          <button
-            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-            @click="editor.chain().focus().toggleItalic().run()"
-            :disabled="!editor.can().chain().focus().toggleItalic().run()"
-            :class="{ 'is-active': editor.isActive('italic') }"
-          >
-            italic
-          </button>
-          <button
-            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-            @click="editor.chain().focus().toggleStrike().run()"
-            :disabled="!editor.can().chain().focus().toggleStrike().run()"
-            :class="{ 'is-active': editor.isActive('strike') }"
-          >
-            strike
-          </button>
-          <button
-            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-            @click="editor.chain().focus().toggleBulletList().run()"
-            :class="{ 'is-active': editor.isActive('bulletList') }"
-          >
-            bullet list
-          </button>
-          <button
-            class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-            @click="editor.chain().focus().toggleOrderedList().run()"
-            :class="{ 'is-active': editor.isActive('orderedList') }"
-          >
-            ordered list
-          </button>
-        </div>
         <editor-content :editor="editor" />
       </div>
       <div class="h-16 bg-gray-100 border-t border-gray-300 text-right items-center">
@@ -92,13 +52,19 @@
       <!-- All notes List -->
       <div class="flex flex-col flex-grow overflow-auto">
         <div v-for="note in notes" :key="note.id">
+          <div class="h-10 mr-3 mt-3 text-right items-center">
+            <button
+              @click="deleteNote(note.id)"
+              class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+            >
+              X
+            </button>
+          </div>
           <div class="flex px-4 pt-3 pb-4">
             <div class="prose my-2 mx-auto">
-              <div>
-                <span class="ml-1 text-xs text-gray-500"
-                  >Created On {{ new Date(note.created).toLocaleString() }}</span
-                >
-              </div>
+              <span class="ml-1 text-xs text-gray-500"
+                >Created On {{ new Date(note.created).toLocaleString() }}</span
+              >
               <div v-html="note.content"></div>
             </div>
           </div>
@@ -135,7 +101,7 @@ export default {
       extensions: [StarterKit],
       editorProps: {
         attributes: {
-          class: 'prose my-6 mx-auto focus:outline border h-screen'
+          class: 'prose my-6 mx-auto focus:outline-none border h-screen'
         }
       }
     });
@@ -182,7 +148,7 @@ export default {
           };
 
           updateRequest.onsuccess = (e) => {
-            // optimistically updating
+            // optimistically updating rather than make getNotes request
             let noteIndex = this.notes.findIndex((n) => n.id === note.id);
             this.notes[noteIndex] = note;
             resolve();
@@ -196,6 +162,22 @@ export default {
           reslove(e.target.result);
         };
       });
+    },
+    async deleteNote(noteId) {
+      let transaction = this.database.transaction('notes', 'readwrite');
+      const store = transaction.objectStore('notes');
+
+      const request = store.delete(noteId);
+
+      request.onerror = (e) => {
+        console.error('Error deleting item:', e);
+      };
+
+      request.onsuccess = () => {
+        // optimistically updating rather than make getNotes request
+        let noteIndex = this.notes.findIndex((n) => n.id === noteId);
+        this.notes.splice(noteIndex, 1);
+      };
     },
     openNote(note) {
       this.editor.commands.setContent(note.content);
@@ -224,7 +206,7 @@ export default {
         transaction.objectStore('notes').add(note).onsuccess = (e) => {
           note.id = e.target.result;
           // add that same note to the sidebar
-          // optimistically updating
+          // optimistically updating rather than make getNotes request
           this.notes.unshift(note);
           this.activeNote = note;
         };
