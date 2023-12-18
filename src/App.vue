@@ -151,6 +151,7 @@ export default {
             // optimistically updating rather than make getNotes request
             let noteIndex = this.notes.findIndex((n) => n.id === note.id);
             this.notes[noteIndex] = note;
+            this.showAllNotes();
             resolve();
           };
         };
