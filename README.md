@@ -9,7 +9,7 @@ This is a Vue PWA learning project. This project is base on https://laracasts.co
 4. Vite
 5. Vue PWA
 
-## Local Startup Guide
+## Running Locally
 
 1. fork project
 2. npm i
@@ -25,10 +25,10 @@ This is a Vue PWA learning project. This project is base on https://laracasts.co
 
 ## Incomplete Todos / Features
 
-1. caching
+1. caching, and look into and add more pwa features
 2. tests
 
-## Helpful Resources
+## Resources
 
 1. https://laracasts.com/series/lets-build-an-offline-first-vue-app/
 2. https://www.vuemastery.com/blog/getting-started-with-pwas-and-vue3/
