@@ -1,5 +1,5 @@
 # Offline First Vue Notes
-This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/.
+This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/. Add, update or delete notes.
 
 ## Technology Used
 
