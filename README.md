@@ -4,16 +4,22 @@ This is a Vue PWA learning project. This project is base on https://laracasts.co
 ## Technology Used
 
 1. Vue
-2. tictap
+2. tiptap(https://tiptap.dev/docs/editor/installation/vue3)
 3. IndexDB
 4. Vite
 5. Vue PWA
+6. tailwind
 
 ## Running Locally
 
 1. fork project
 2. npm i
 3. npm run dev
+
+### php server
+to see the option to download the app locally, 
+1. cd dist
+2. php -S localhost:8888
 
 
 ## Completed Features
