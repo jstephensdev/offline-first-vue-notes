@@ -1,6 +1,8 @@
 # Offline First Vue Notes
 This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/. Add, update or delete notes.
 
+<img src="./readme-image.png" alt="Notes" height="400" width="400" style="vertical-align:top; margin:4px">
+
 ## Technology Used
 
 1. Vue
