@@ -87,7 +87,8 @@ export default {
       editor: null,
       database: null,
       notes: [],
-      activeNote: {}
+      activeNote: {},
+      isOffline: !navigator.onLine
     };
   },
   async created() {
@@ -96,6 +97,7 @@ export default {
     this.notes = notes.reverse();
   },
   mounted() {
+    console.log('offline',this.isOffline)
     this.editor = new Editor({
       content: '',
       extensions: [StarterKit],
