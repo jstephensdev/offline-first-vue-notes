@@ -5,12 +5,13 @@ This is a Vue PWA learning project. This project is based on https://laracasts.c
 
 ## Technology Used
 
-1. Vue
-2. tiptap(https://tiptap.dev/docs/editor/installation/vue3)
-3. IndexDB
-4. Vite
-5. Vue PWA
-6. tailwind
+1. Vue using Options api
+2. Pinia
+3. tiptap(https://tiptap.dev/docs/editor/installation/vue3)
+4. IndexDB
+5. Vite
+6. Vue PWA
+7. tailwind
 
 ## Running Locally
 
@@ -35,6 +36,7 @@ to see the option to download the app locally,
 
 1. caching, and look into and add more pwa features
 2. tests
+3. updated at timestamp
 
 ## Resources
 
@@ -44,3 +46,9 @@ to see the option to download the app locally,
 4. https://vite-pwa-org.netlify.app/deployment/netlify.html
 5. https://github.com/vite-pwa/vite-plugin-pwa/issues/396
 6. https://stackoverflow.com/questions/71355290/prevent-service-worker-js-from-being-bundled-with-vite-rollup
+7. https://pinia.vuejs.org/getting-started.html
+8. https://pinia.vuejs.org/core-concepts/outside-component-usage.html
+9. https://vueschool.io/lessons/access-state-from-a-pinia-store
+10. https://www.vuemastery.com/blog/advantages-of-pinia-vs-vuex/
+11. https://vitest.dev/guide/
+12. https://vuejs.org/guide/scaling-up/testing
