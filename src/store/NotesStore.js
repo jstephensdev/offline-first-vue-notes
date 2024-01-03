@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia';
+import { Editor } from '@tiptap/vue-3';
+import StarterKit from '@tiptap/starter-kit';
 
 export const useNotesStore = defineStore('NotesStore', {
   // state
@@ -16,7 +18,15 @@ export const useNotesStore = defineStore('NotesStore', {
       this.database = await this.getDatabase();
       let notes = await this.getNotes();
       this.notes = notes.reverse();
-      
+      this.editor = new Editor({
+        content: '',
+        extensions: [StarterKit],
+        editorProps: {
+          attributes: {
+            class: 'prose my-6 mx-auto focus:outline-none border h-screen'
+          }
+        }
+      });
     },
     async getDatabase() {
       return new Promise((resolve, reject) => {

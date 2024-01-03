@@ -1,5 +1,5 @@
 # Offline First Vue Notes
-This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/. Add, update or delete notes.
+This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/. Add, update or delete notes on or offline.
 
 <img src="./readme-image.png" alt="Notes" height="300" width="700" style="vertical-align:top; margin:4px">
 
@@ -21,8 +21,9 @@ This is a Vue PWA learning project. This project is based on https://laracasts.c
 
 ### php server
 to see the option to download the app locally, 
-1. cd dist
-2. php -S localhost:8888
+1. npm run build
+2. cd dist
+3. php -S localhost:8888
 
 
 ## Completed Features

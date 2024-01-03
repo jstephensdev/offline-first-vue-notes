@@ -18,7 +18,7 @@ export default defineConfig({
         scope: '/',
         icons: [
           {
-            src: 'img/icons/msapplication-icon-144x144.png',
+            src: 'img/icons/notes.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'any'
