@@ -23,7 +23,7 @@ export const useNotesStore = defineStore('NotesStore', {
         extensions: [StarterKit],
         editorProps: {
           attributes: {
-            class: 'prose my-6 mx-auto focus:outline-none border h-screen'
+            class: 'prose my-6 mx-auto px-2 py-2 border focus:outline-none h-screen'
           }
         }
       });
@@ -55,7 +55,6 @@ export const useNotesStore = defineStore('NotesStore', {
     showAllNotes() {
       this.editor.commands.clearContent();
       this.activeNote = {};
-    },
-  },
-
+    }
+  }
 });
