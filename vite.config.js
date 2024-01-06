@@ -32,12 +32,9 @@ export default defineConfig({
       input: {
         // the default entry point
         app: './index.html',
-
-        // 1️⃣
         'service-worker': './src/registerServiceWorker.js'
       },
       output: {
-        // 2️⃣
         entryFileNames: (assetInfo) => {
           return assetInfo.name === 'service-worker'
             ? '[name].js' // put service worker in root

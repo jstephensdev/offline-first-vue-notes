@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-screen h-screen text-gray-700">
+  <div class="flex w-screen h-screen text-gray-700 mobile">
     <Sidebar />
     <div
       class="flex w-screen h-screen text-gray-700"
@@ -40,3 +40,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* tailiwnd md:block did not work */
+@media (max-width: 1250px) {
+  .mobile {
+    display: block;
+  }
+}
+</style>

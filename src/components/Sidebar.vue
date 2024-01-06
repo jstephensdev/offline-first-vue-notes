@@ -1,40 +1,37 @@
 <template>
-  <div class="flex flex-col flex-shrink-0 w-64 border-r border-gray-300 bg-gray-100">
-    <!-- sidebar -->
-    <div class="h-0 overflow-auto flex-grow">
-      <div class="flex items-center h-8 px-3 group mt-4">
-        <div class="flex items-center flex-grow focus:outline-none">
-          <a
-            class="ml-2 leading-none font-medium text-sm"
-            href="#"
-            @click.prevent="this.notesStore.showAllNotes()"
-          >
-            All Notes
-          </a>
-        </div>
-        <button
-          class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
-          @click="this.addNewNote()"
-        >
-          +
-        </button>
-      </div>
-      <div class="mt-4">
+  <div class="px-3 border-r border-gray-300 bg-gray-100">
+    <div class="flex justify-between h-8 px-3 group mt-4">
+      <div class="flex items-center">
         <a
-          class="flex items-center h-8 text-sm pl-8 pr-3"
+          class="ml-2 leading-none font-medium text-sm"
           href="#"
-          v-for="note in this.notesStore.notes"
-          :class="
-            this.notesStore.activeNote.id === note.id
-              ? 'flex items-center h-8 text-sm pl-8 pr-3 text-blue-600'
-              : ''
-          "
-          :key="note.id"
-          @click.prevent="this.openNote(note)"
+          @click.prevent="this.notesStore.showAllNotes()"
         >
-          <span class="ml-2 leading-none">{{ new Date(note.created).toLocaleString() }}</span>
+          All Notes
         </a>
       </div>
+      <button
+        class="pl-2 pr-2 pt-0 pb-0 bg-white border border-gray-400 hover:bg-black hover:text-white"
+        @click="this.addNewNote()"
+      >
+        +
+      </button>
+    </div>
+    <div class="mt-4 px-3 py-3 mr-3">
+      <a
+        class="flex items-center h-8 text-sm pl-8 pr-3"
+        href="#"
+        v-for="note in this.notesStore.notes"
+        :class="
+          this.notesStore.activeNote.id === note.id
+            ? 'flex items-center h-8 text-sm pl-8 pr-3 text-blue-600'
+            : ''
+        "
+        :key="note.id"
+        @click.prevent="this.openNote(note)"
+      >
+        <span class="ml-2 leading-none">{{ new Date(note.created).toLocaleString() }}</span>
+      </a>
     </div>
   </div>
 </template>
