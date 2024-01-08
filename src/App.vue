@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 /* tailiwnd md:block did not work */
-@media (max-width: 1250px) {
+@media (max-width: 900px) {
   .mobile {
     display: block;
   }
