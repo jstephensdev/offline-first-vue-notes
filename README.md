@@ -1,5 +1,5 @@
 # Offline First Vue Notes
-This is a Vue PWA learning project. This project is based on https://laracasts.com/series/lets-build-an-offline-first-vue-app/. Add, update or delete notes on or offline.
+This is a Vue PWA learning project. Add, update or delete notes on or offline.
 
 <img src="./readme-image.png" alt="Notes" height="300" width="700" style="vertical-align:top; margin:4px">
 
@@ -53,3 +53,5 @@ to see the option to download the app locally,
 10. https://www.vuemastery.com/blog/advantages-of-pinia-vs-vuex/
 11. https://vitest.dev/guide/
 12. https://vuejs.org/guide/scaling-up/testing
+13. https://css-tricks.com/vitepwa-plugin-offline-service-worker/
+14. https://www.codemag.com/Article/2309071/Vite-and-Progressive-Web-Apps
